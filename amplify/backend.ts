@@ -1,4 +1,5 @@
 import { defineBackend } from "@aws-amplify/backend";
+import { getclubinfo } from './functions/casino-app/resource';
 import { Stack } from "aws-cdk-lib";
 import {
   AuthorizationType,
@@ -43,9 +44,9 @@ const itemsPath = myRestApi.root.addResource("items", {
     authorizationType: AuthorizationType.IAM,
   },
 });
-
+ 
 // add methods you would like to create to the resource path
-itemsPath.addMethod("GET", lambdaIntegration);
+itemsPath.addMethod("GET"  , lambdaIntegration);
 itemsPath.addMethod("POST", lambdaIntegration);
 itemsPath.addMethod("DELETE", lambdaIntegration);
 itemsPath.addMethod("PUT", lambdaIntegration);
@@ -101,3 +102,7 @@ backend.addOutput({
     },
   },
 });
+
+defineBackend({
+  getclubinfo
+})

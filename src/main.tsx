@@ -6,16 +6,8 @@ import { Amplify } from "aws-amplify";
 import outputs from "../amplify_outputs.json";
 
 Amplify.configure(outputs);
-const existingConfig = Amplify.getConfig();
-console.log(existingConfig);
-Amplify.configure({
-  ...existingConfig,
-  API: {
-    REST: outputs.custom.API,
-  },
-});
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
-);
+);  
